@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RE8CH platform tool distribution catalog for MCP, Codex Plugin, ChatGPT App and Work.">
+  <title>RE8CH Tool Distribution</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="wrap">
+    <div class="eyebrow">RE8CH / Tool Distribution</div>
+    <h1>One backend. Every supported AI surface.</h1>
+    <p class="lead">A versioned catalog for the RE8CH platform tool suite. Each package keeps its skill policy beside the MCP connection while sharing the same remote ToolHive service.</p>
+    <div class="flow" aria-label="Distribution model">
+      <div><strong>MCP</strong>Remote protocol</div>
+      <div><strong>Plugin</strong>Skills + connection</div>
+      <div><strong>App</strong>Registered connection</div>
+      <div><strong>Work</strong>Universal listing</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="plugins" class="grid" aria-live="polite"><p>Loading catalog…</p></div>
+    <section class="policy">
+      <h2>Identity and policy stay centralized</h2>
+      <p>All routes terminate at the same OAuth-protected MCP service. Authentik remains the upstream identity source; ToolHive performs MCP authorization and aggregation; Kubernetes RBAC and bounded backend APIs enforce the final action scope.</p>
+      <p>“App” is intentionally marked as registration-required until an OpenAI technical App ID exists. “Work / Cowork” is not a second backend: it consumes the same universal plugin listing.</p>
+      <a class="button" href="https://github.com/re8ch/tool-distribution">View catalog on GitHub</a>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span id="updated">Catalog</span><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></div></footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>

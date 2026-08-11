@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "publisher": "RE8CH",
+  "repository": "https://github.com/re8ch/tool-distribution",
+  "marketplace": "re8ch-admin-private",
+  "updated": "2026-08-12",
+  "plugins": [
+    {
+      "id": "re8ch-platform-tools",
+      "name": "Platform Tools",
+      "summary": "Observe platform health and perform bounded, audited operations.",
+      "access": "Authenticated users; writes require Operator or Admin membership.",
+      "mcp": {
+        "status": "live",
+        "url": "https://tools.re8ch.com:8443/mcp"
+      },
+      "plugin": {
+        "status": "live",
+        "selector": "re8ch-platform-tools@re8ch-admin-private",
+        "uri": "plugin://re8ch-platform-tools@re8ch-admin-private"
+      },
+      "app": {
+        "status": "registration-required",
+        "detail": "Register this MCP endpoint in ChatGPT Developer Mode, then commit its technical App ID in .app.json."
+      },
+      "work": {
+        "status": "via-plugin",
+        "uri": "plugin://re8ch-platform-tools@re8ch-admin-private",
+        "detail": "ChatGPT Work uses the same universal plugin listing."
+      }
+    },
+    {
+      "id": "re8ch-platform-admin",
+      "name": "Platform Admin",
+      "summary": "Restricted identity, RBAC, tenant and platform administration.",
+      "access": "RE8CH Platform Admins only; secret values are never returned.",
+      "mcp": {
+        "status": "live",
+        "url": "https://admin.re8ch.com:8443/mcp"
+      },
+      "plugin": {
+        "status": "live",
+        "selector": "re8ch-platform-admin@re8ch-admin-private",
+        "uri": "plugin://re8ch-platform-admin@re8ch-admin-private"
+      },
+      "app": {
+        "status": "registration-required",
+        "detail": "Register this MCP endpoint in ChatGPT Developer Mode, then commit its technical App ID in .app.json."
+      },
+      "work": {
+        "status": "via-plugin",
+        "uri": "plugin://re8ch-platform-admin@re8ch-admin-private",
+        "detail": "ChatGPT Work uses the same universal plugin listing."
+      }
+    }
+  ]
+}
