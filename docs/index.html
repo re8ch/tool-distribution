@@ -3,30 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RE8CH platform tool distribution catalog for MCP, Codex Plugin, ChatGPT App and Work.">
+  <meta name="description" content="RE8CH ConnecTool distribution status across ChatGPT, Codex, Claude, Cowork, Cursor, WorkBuddy, Coze and Doubao.">
   <title>RE8CH Tool Distribution</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="wrap">
-    <div class="eyebrow">RE8CH / Tool Distribution</div>
-    <h1>One backend. Every supported AI surface.</h1>
-    <p class="lead">A versioned catalog for the RE8CH platform tool suite. Each package keeps its skill policy beside the MCP connection while sharing the same remote ToolHive service.</p>
+    <div class="eyebrow">RE8CH / ConnecTool Distribution</div>
+    <h1>One backend. Every viable AI surface.</h1>
+    <p class="lead">A release catalog for one OAuth-protected ToolHive MCP plane. Platform packages carry discovery and skills; authorization, policy and audit remain centralized.</p>
     <div class="flow" aria-label="Distribution model">
-      <div><strong>MCP</strong>Remote protocol</div>
-      <div><strong>Plugin</strong>Skills + connection</div>
-      <div><strong>App</strong>Registered connection</div>
-      <div><strong>Work</strong>Universal listing</div>
+      <div><strong>ConnecTool</strong>Identity and publication contract</div>
+      <div><strong>ToolHive MCP</strong>One remote capability plane</div>
+      <div><strong>Portable packages</strong>Skills and client discovery</div>
+      <div><strong>Vendor gates</strong>Registration or official review</div>
     </div>
   </header>
 
   <main class="wrap">
-    <div id="plugins" class="grid" aria-live="polite"><p>Loading catalog…</p></div>
+    <section>
+      <div class="section-head"><div><div class="eyebrow">Platform matrix</div><h2>Registration and certification</h2></div><p>“Package ready” means repository artifacts validate. It does not bypass an external OAuth registration or vendor review.</p></div>
+      <div id="channels" class="channel-grid" aria-live="polite"><p>Loading catalog…</p></div>
+    </section>
+
+    <section class="plugin-section">
+      <div class="section-head"><div><div class="eyebrow">Installable packages</div><h2>Shared capabilities</h2></div><p>Only the owning packages register MCP connections. Skill-only packages reuse that authenticated connection.</p></div>
+      <div id="plugins" class="grid" aria-live="polite"></div>
+    </section>
+
     <section class="policy">
-      <h2>Identity and policy stay centralized</h2>
-      <p>All routes terminate at the same OAuth-protected MCP service. Authentik remains the upstream identity source; ToolHive performs MCP authorization and aggregation; Kubernetes RBAC and bounded backend APIs enforce the final action scope.</p>
-      <p>“App” is intentionally marked as registration-required until an OpenAI technical App ID exists. “Work / Cowork” is not a second backend: it consumes the same universal plugin listing.</p>
-      <a class="button" href="https://github.com/re8ch/tool-distribution">View catalog on GitHub</a>
+      <h2>Known external gates</h2>
+      <p>OpenAI, Anthropic public directories, Cursor public Marketplace and WorkBuddy market publication require vendor review. Cursor additionally requires a public open-source source repository. WorkBuddy and Coze need platform OAuth callback/client registration because the current Dex issuer has no dynamic client-registration endpoint.</p>
+      <p>New publication from Coze to Doubao is unavailable: Coze removed that channel on 2026-07-01. Existing Doubao publications are unaffected.</p>
+      <a class="button" href="https://github.com/re8ch/tool-distribution">View machine-readable catalog</a>
     </section>
   </main>
 
