@@ -1,37 +1,38 @@
-const routeOrder = ["mcp", "plugin", "app", "work"];
-const routeNames = { mcp: "MCP", plugin: "Codex Plugin", app: "ChatGPT App", work: "ChatGPT Work / Cowork" };
+const statusLabel = value => value.replaceAll("-", " ");
 
-function routeValue(route) {
-  return route.url || route.uri || route.selector || "Registration ID pending";
+function channelCard(channel) {
+  const docs = channel.documentation ? `<a class="button" href="${channel.documentation}">Official requirements</a>` : "";
+  return `<article class="channel ${channel.entryClass}" id="${channel.id}">
+    <div class="channel-head"><span class="class-label">${statusLabel(channel.entryClass)}</span><span class="badge ${channel.status}">${statusLabel(channel.status)}</span></div>
+    <h3>${channel.name}</h3>
+    <p class="surfaces">${channel.surfaces.join(" · ")}</p>
+    <p>${channel.detail}</p>
+    <div class="integration">${channel.integration}</div>${docs}
+  </article>`;
 }
 
-function routeButton(route, value) {
-  if (route.url) return `<button type="button" data-copy="${value}">Copy endpoint</button>`;
-  if (route.uri) return `<a class="button" href="${route.uri}">Open plugin</a>`;
-  return "";
-}
-
-function renderRoute(kind, route) {
-  const value = routeValue(route);
-  return `<section class="route">
-    <div class="route-head"><span class="route-title">${routeNames[kind]}</span><span class="badge ${route.status}">${route.status.replaceAll("-", " ")}</span></div>
-    <div class="value">${value}</div>
-    ${route.detail ? `<p class="detail">${route.detail}</p>` : ""}
-    ${routeButton(route, value)}
-  </section>`;
+function pluginCard(plugin) {
+  const endpoint = plugin.mcp.url || `Shared owner: ${plugin.mcp.owner}`;
+  return `<article class="card" id="${plugin.id}">
+    <h3>${plugin.name}</h3>
+    <p class="summary">${plugin.summary}</p>
+    <p class="access">${plugin.access}</p>
+    <div class="route">
+      <div class="route-head"><span>${plugin.mcp.role} MCP</span><span class="badge ${plugin.mcp.status}">${plugin.mcp.status}</span></div>
+      <div class="value">${endpoint}</div>
+      <div class="value">${plugin.selector}</div>
+      ${plugin.mcp.url ? `<button type="button" data-copy="${plugin.mcp.url}">Copy endpoint</button>` : ""}
+    </div>
+  </article>`;
 }
 
 async function init() {
   const response = await fetch("./catalog.json");
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const catalog = await response.json();
   document.querySelector("#updated").textContent = `Catalog updated ${catalog.updated}`;
-  document.querySelector("#plugins").innerHTML = catalog.plugins.map((plugin, index) => `
-    <article class="card ${index === 0 ? "tools" : "admin"}" id="${plugin.id}">
-      <h2>${plugin.name}</h2>
-      <p class="summary">${plugin.summary}</p>
-      <p class="access">${plugin.access}</p>
-      <div class="routes">${routeOrder.map(kind => renderRoute(kind, plugin[kind])).join("")}</div>
-    </article>`).join("");
+  document.querySelector("#channels").innerHTML = catalog.channels.map(channelCard).join("");
+  document.querySelector("#plugins").innerHTML = catalog.plugins.map(pluginCard).join("");
 
   document.addEventListener("click", async event => {
     const button = event.target.closest("[data-copy]");
@@ -44,5 +45,5 @@ async function init() {
 }
 
 init().catch(error => {
-  document.querySelector("#plugins").innerHTML = `<p>Catalog unavailable: ${error.message}</p>`;
+  document.querySelector("#channels").innerHTML = `<p>Catalog unavailable: ${error.message}</p>`;
 });
