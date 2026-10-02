@@ -1,0 +1,13 @@
+{
+  "name": "RE8CH 租户工具",
+  "name_zh": "RE8CH 租户工具",
+  "name_en": "RE8CH Tenant Tools",
+  "description": "访问当前 RE8CH 租户被授权的工具。",
+  "description_zh": "访问当前 RE8CH 租户被授权的工具。",
+  "description_en": "Use tools authorized for the current RE8CH tenant.",
+  "source": "re8ch-tenant",
+  "type": "mcp",
+  "version": "0.1.0",
+  "examples_zh": ["列出我可使用的租户工具", "查看当前租户的可用能力"],
+  "examples_en": ["List my available tenant tools", "Show capabilities available to my tenant"]
+}

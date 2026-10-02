@@ -107,7 +107,7 @@
       "entryClass": "official-review",
       "status": "oauth-registration-required",
       "integration": "MCP + Skill connector",
-      "detail": "Review bundles are ready. Server-side OAuth and market publication require WorkBuddy coordination.",
+      "detail": "Public connector bundles are available in distribution/workbuddy. Tenant connection requires OAuth; Cloud OAuth registration remains pending.",
       "documentation": "https://open.workbuddy.cn/docs/connector"
     },
     {

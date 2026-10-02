@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "re8ch-tenant-admin": {
+      "type": "streamableHttp",
+      "url": "https://admin.re8ch.com:8443/mcp",
+      "timeout": 30000
+    }
+  }
+}

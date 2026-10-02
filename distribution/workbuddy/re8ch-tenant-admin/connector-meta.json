@@ -1,0 +1,14 @@
+{
+  "name": "RE8CH 租户管理",
+  "name_zh": "RE8CH 租户管理",
+  "name_en": "RE8CH Tenant Admin",
+  "description": "管理 RE8CH 租户、授权与 BYOC 审批。",
+  "description_zh": "管理 RE8CH 租户、授权与 BYOC 审批。",
+  "description_en": "Administer RE8CH tenants, grants and BYOC approvals.",
+  "source": "re8ch-tenant-admin",
+  "type": "mcp",
+  "version": "0.1.4",
+  "auth_mode": "server-side",
+  "examples_zh": ["列出租户身份边界", "查看待处理的 BYOC 注册"],
+  "examples_en": ["List tenant identity boundaries", "Review pending BYOC registrations"]
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "re8ch-cloud-platform-tool": {
+      "type": "streamableHttp",
+      "url": "https://operate.tools.re8ch.com/cloud/mcp",
+      "timeout": 30000
+    }
+  }
+}
