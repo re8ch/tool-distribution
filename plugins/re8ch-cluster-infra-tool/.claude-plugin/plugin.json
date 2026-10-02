@@ -1,0 +1,11 @@
+{
+  "name": "re8ch-cluster-infra-tool",
+  "version": "0.1.6",
+  "description": "Operate RE8CH networking, storage, databases, registries and observability infrastructure.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-cluster-infra-tool",
+  "repository": "https://github.com/re8ch/tool-distribution"
+}

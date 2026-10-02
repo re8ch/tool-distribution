@@ -1,0 +1,19 @@
+{
+  "name": "re8ch-tenant-admin",
+  "version": "0.1.4",
+  "description": "Protected tenant, authorization and BYOC approval control plane.",
+  "author": {
+    "name": "RE8CH", "url": "https://github.com/re8ch"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Re8ch Tenant Admin",
+    "shortDescription": "Administer tenants and BYOC approvals.",
+    "longDescription": "Creates tenant identity boundaries, grants Consumable roles, and approves or revokes BYOC connections through the protected administrative MCP resource.",
+    "developerName": "RE8CH",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write", "OAuth", "MCP"],
+    "defaultPrompt": ["List tenant identity boundaries.", "Review pending BYOC registrations.", "Revoke a tenant authorization safely."]
+  },
+  "mcpServers": "./.mcp.json"
+}

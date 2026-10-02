@@ -1,0 +1,34 @@
+{
+  "name": "re8ch-tools",
+  "owner": {
+    "name": "RE8CH",
+    "email": "connectool-maintain@phonaid.com"
+  },
+  "plugins": [
+    {
+      "name": "re8ch-cloud-platform-tool",
+      "source": "./plugins/re8ch-cloud-platform-tool",
+      "description": "Inspect and repair RE8CH Kubernetes and nodes."
+    },
+    {
+      "name": "re8ch-cluster-infra-tool",
+      "source": "./plugins/re8ch-cluster-infra-tool",
+      "description": "Operate RE8CH cluster infrastructure through the shared MCP connection."
+    },
+    {
+      "name": "re8ch-agent-orchestra-collab",
+      "source": "./plugins/re8ch-agent-orchestra-collab",
+      "description": "Coordinate RE8CH agent and application workflows through the shared MCP connection."
+    },
+    {
+      "name": "re8ch-tenant-admin",
+      "source": "./plugins/re8ch-tenant-admin",
+      "description": "Administer tenants, authorization grants and BYOC approvals."
+    },
+    {
+      "name": "re8ch-tenant",
+      "source": "./plugins/re8ch-tenant",
+      "description": "Use tenant-scoped RE8CH cloud capabilities through OAuth."
+    }
+  ]
+}

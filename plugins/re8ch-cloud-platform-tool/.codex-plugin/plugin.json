@@ -1,0 +1,28 @@
+{
+  "name": "re8ch-cloud-platform-tool",
+  "version": "0.1.7",
+  "description": "Dex-activated permanent device access for full RE8CH Kubernetes and node repair operations.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Re8ch Cloud Platform Tool",
+    "shortDescription": "Repair Kubernetes and nodes through the RE8CH control plane.",
+    "longDescription": "Full kubectl, SSH sessions, file transfer and cluster repair through a three-control-plane MCP service. Device access is activated with Dex and remains valid until server-side deactivation.",
+    "developerName": "RE8CH",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "OAuth",
+      "MCP"
+    ],
+    "defaultPrompt": [
+      "Inspect RE8CH control-plane health.",
+      "Perform this authorized Kubernetes or node repair operation."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

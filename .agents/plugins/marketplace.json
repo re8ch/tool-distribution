@@ -1,0 +1,68 @@
+{
+  "name": "re8ch-tools",
+  "interface": {
+    "displayName": "RE8CH Tools"
+  },
+  "plugins": [
+    {
+      "name": "re8ch-cloud-platform-tool",
+      "source": {
+        "source": "local",
+        "path": "./plugins/re8ch-cloud-platform-tool"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "re8ch-cluster-infra-tool",
+      "source": {
+        "source": "local",
+        "path": "./plugins/re8ch-cluster-infra-tool"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "re8ch-agent-orchestra-collab",
+      "source": {
+        "source": "local",
+        "path": "./plugins/re8ch-agent-orchestra-collab"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "re8ch-tenant-admin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/re8ch-tenant-admin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "re8ch-tenant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/re8ch-tenant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

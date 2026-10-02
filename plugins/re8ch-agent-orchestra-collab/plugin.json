@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "re8ch-agent-orchestra-collab",
+  "version": "0.1.3",
+  "description": "Coordinate RE8CH Teable, LiteLLM, OpenSandbox, KAgent and agent workflows.",
+  "author": {"name": "RE8CH", "url": "https://github.com/re8ch"},
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-agent-orchestra-collab",
+  "repository": "https://github.com/re8ch/tool-distribution",
+  "keywords": ["re8ch", "agents", "orchestration", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RE8CH Agent Orchestra Collab",
+        "shortDescription": "Coordinate RE8CH agent and application workflows.",
+        "longDescription": "Workflow guidance for tasks, models, sandboxes, agent sessions and artifacts through the shared RE8CH MCP connection.",
+        "developerName": "RE8CH",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Read", "Write", "OAuth", "MCP"],
+        "defaultPrompt": [
+          "Trace this RE8CH task across agent systems.",
+          "Coordinate this authorized application workflow."
+        ]
+      }
+    }
+  }
+}

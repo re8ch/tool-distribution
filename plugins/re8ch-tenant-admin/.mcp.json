@@ -1,0 +1,3 @@
+{
+  "mcpServers": {"re8ch-tenant-admin": {"type": "http", "url": "https://admin.re8ch.com:8443/mcp", "oauth": {"clientId": "re8ch-platform-admin"}, "scopes": ["openid", "profile", "email", "groups", "offline_access"]}}
+}

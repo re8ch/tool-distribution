@@ -1,0 +1,11 @@
+{
+  "name": "re8ch-tenant",
+  "version": "0.2.2",
+  "description": "Use tenant-scoped RE8CH cloud capabilities through OAuth.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "homepage": "https://re8ch.github.io/tool-distribution/",
+  "repository": "https://github.com/re8ch/tool-distribution"
+}

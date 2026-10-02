@@ -1,0 +1,8 @@
+{
+  "name": "re8ch-tenant-admin",
+  "version": "0.1.4",
+  "description": "Administer RE8CH tenants, authorization grants and BYOC approvals.",
+  "author": {"name": "RE8CH", "url": "https://github.com/re8ch"},
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-tenant-admin",
+  "repository": "https://github.com/re8ch/tool-distribution"
+}

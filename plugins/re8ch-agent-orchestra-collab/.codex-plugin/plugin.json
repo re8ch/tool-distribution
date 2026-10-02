@@ -1,0 +1,28 @@
+{
+  "name": "re8ch-agent-orchestra-collab",
+  "version": "0.1.3",
+  "description": "Coordinate RE8CH Teable, LiteLLM, OpenSandbox, KAgent and Codex workflows.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Re8ch Agent Orchestra Collab",
+    "shortDescription": "Coordinate RE8CH agent and application workflows.",
+    "longDescription": "Task, model, sandbox, agent session, Codex task and artifact collaboration. Authentication is shared once at the RE8CH MCP edge while application authorization remains independently enforced.",
+    "developerName": "RE8CH",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "OAuth",
+      "MCP"
+    ],
+    "defaultPrompt": [
+      "Trace this RE8CH task across agent systems.",
+      "Coordinate this authorized application workflow."
+    ]
+  }
+}

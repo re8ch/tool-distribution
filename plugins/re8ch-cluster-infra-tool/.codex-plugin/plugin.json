@@ -1,0 +1,28 @@
+{
+  "name": "re8ch-cluster-infra-tool",
+  "version": "0.1.6",
+  "description": "Operate RE8CH Cilium, Ceph, Pigsty, Harbor, Grafana, LiteLLM and GitHub infrastructure.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Re8ch Cluster Infra Tool",
+    "shortDescription": "Observe and operate RE8CH cluster infrastructure and storage.",
+    "longDescription": "Domain operations for networking, Rook/Ceph, Ready-node filesystem and swap capacity, databases, artifacts, observability and monorepo deployment evidence. Authentication is shared once at the RE8CH MCP edge; authorization remains enforced by server policy and cluster RBAC.",
+    "developerName": "RE8CH",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "OAuth",
+      "MCP"
+    ],
+    "defaultPrompt": [
+      "Check RE8CH infrastructure health.",
+      "Execute this authorized infrastructure operation and verify rollback status."
+    ]
+  }
+}

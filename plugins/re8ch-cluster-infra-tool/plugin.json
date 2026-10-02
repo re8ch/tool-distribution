@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "re8ch-cluster-infra-tool",
+  "version": "0.1.6",
+  "description": "Operate RE8CH networking, storage, databases, registries and observability infrastructure.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-cluster-infra-tool",
+  "repository": "https://github.com/re8ch/tool-distribution",
+  "keywords": [
+    "re8ch",
+    "infrastructure",
+    "operations",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RE8CH Cluster Infra Tool",
+        "shortDescription": "Operate RE8CH cluster infrastructure.",
+        "longDescription": "Workflow guidance for networking, storage, databases, artifacts and observability through the shared RE8CH MCP connection.",
+        "developerName": "RE8CH",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write",
+          "OAuth",
+          "MCP"
+        ],
+        "defaultPrompt": [
+          "Check RE8CH infrastructure health.",
+          "Execute this authorized infrastructure operation and verify rollback status."
+        ]
+      }
+    }
+  }
+}

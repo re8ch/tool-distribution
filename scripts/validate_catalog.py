@@ -32,7 +32,7 @@ def main() -> None:
     plugin_ids = [item["id"] for item in plugins]
     expected_plugins = {
         "re8ch-cloud-platform-tool", "re8ch-cluster-infra-tool",
-        "re8ch-agent-orchestra-collab", "re8ch-tenant-admin",
+        "re8ch-agent-orchestra-collab", "re8ch-tenant-admin", "re8ch-tenant",
     }
     if set(plugin_ids) != expected_plugins or len(plugin_ids) != len(set(plugin_ids)):
         raise SystemExit(f"plugin set drifted: {plugin_ids}")
