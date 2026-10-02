@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "re8ch-tenant-admin",
+  "version": "0.1.4",
+  "description": "Administer RE8CH tenants, authorization grants and BYOC approvals.",
+  "author": {"name": "RE8CH", "url": "https://github.com/re8ch"},
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-tenant-admin",
+  "repository": "https://github.com/re8ch/tool-distribution",
+  "keywords": ["re8ch", "tenant", "administration", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RE8CH Tenant Admin",
+        "shortDescription": "Administer tenants and BYOC approvals.",
+        "longDescription": "Protected tenant identity, authorization grant and BYOC approval workflows through the RE8CH administrative MCP resource.",
+        "developerName": "RE8CH",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Write", "OAuth", "MCP"],
+        "websiteURL": "https://re8ch.github.io/tool-distribution/#re8ch-tenant-admin",
+        "privacyPolicyURL": "https://re8ch.github.io/tool-distribution/privacy.html",
+        "termsOfServiceURL": "https://re8ch.github.io/tool-distribution/terms.html",
+        "defaultPrompt": [
+          "List tenant identity boundaries.",
+          "Review pending BYOC registrations."
+        ],
+        "brandColor": "#FF5A36"
+      }
+    }
+  }
+}

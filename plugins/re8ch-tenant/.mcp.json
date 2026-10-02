@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "re8ch-tenant": {
+      "type": "http",
+      "url": "https://tools.service.re8ch.com/tenant-native/mcp",
+      "oauth_resource": "https://tools.service.re8ch.com/tenant-native/mcp",
+      "scopes": [
+        "openid",
+        "profile",
+        "email",
+        "offline_access"
+      ]
+    }
+  }
+}

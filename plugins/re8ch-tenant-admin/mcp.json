@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "re8ch-tenant-admin": {
+      "type": "streamable-http",
+      "url": "https://admin.re8ch.com:8443/mcp",
+      "oauth": {"clientId": "re8ch-platform-admin"},
+      "scopes": ["openid", "profile", "email", "groups", "offline_access"]
+    }
+  }
+}

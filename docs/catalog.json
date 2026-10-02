@@ -2,26 +2,212 @@
   "schemaVersion": "2.0",
   "publisher": "RE8CH",
   "repository": "https://github.com/re8ch/tool-distribution",
-  "pluginRepository": "https://github.com/re8ch/codex-admin-plugins",
-  "marketplace": "re8ch-admin-private",
-  "updated": "2026-09-23",
+  "pluginRepository": "https://github.com/re8ch/tool-distribution",
+  "marketplace": "re8ch-tools",
+  "updated": "2026-10-02",
   "channels": [
-    {"id": "openai-private", "name": "ChatGPT / Codex private", "surfaces": ["ChatGPT", "ChatGPT Work", "Codex"], "entryClass": "self-service", "status": "package-ready", "integration": "Agent Plugin + private marketplace", "detail": "Portable Agent Plugin packages are ready. ChatGPT developer mode creates the account-local MCP registration."},
-    {"id": "openai-public", "name": "OpenAI universal directory", "surfaces": ["ChatGPT", "Codex"], "entryClass": "official-review", "status": "review-required", "integration": "Public plugin submission", "detail": "Requires verified developer or business identity, Apps Management write access, reviewer credentials and approval.", "documentation": "https://developers.openai.com/plugins/deploy/submission"},
-    {"id": "anthropic-custom-connector", "name": "Claude custom connector", "surfaces": ["Claude", "Claude Desktop", "Cowork"], "entryClass": "self-service", "status": "oauth-registration-required", "integration": "Remote MCP", "detail": "An owner can add the URL directly. OAuth callback/client registration is still required before sign-in.", "documentation": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"},
-    {"id": "anthropic-private-plugin", "name": "Claude private marketplace", "surfaces": ["Claude", "Claude Code", "Cowork"], "entryClass": "self-service", "status": "package-ready", "integration": "Git marketplace", "detail": "Install from the repository or sync it into a Team or Enterprise organization marketplace."},
-    {"id": "anthropic-public", "name": "Anthropic public directories", "surfaces": ["Claude", "Claude Code", "Cowork"], "entryClass": "official-review", "status": "review-required", "integration": "Connector + community plugin submissions", "detail": "The connector directory and community plugin marketplace have separate review submissions.", "documentation": "https://support.anthropic.com/en/articles/11596036-anthropic-mcp-directory-faq"},
-    {"id": "cursor-team", "name": "Cursor team marketplace", "surfaces": ["Cursor IDE", "Cursor CLI"], "entryClass": "self-service", "status": "package-ready", "integration": "Private team marketplace", "detail": "Teams and Enterprise admins can import the private plugin repository."},
-    {"id": "cursor-public", "name": "Cursor public marketplace", "surfaces": ["Cursor IDE", "Cursor CLI"], "entryClass": "official-review", "status": "blocked-private-source", "integration": "Public marketplace submission", "detail": "Cursor requires a public open-source repository and manual review; the administrative source repository is private.", "documentation": "https://prod.cursor.com/docs/reference/plugins"},
-    {"id": "workbuddy", "name": "WorkBuddy connector market", "surfaces": ["WorkBuddy"], "entryClass": "official-review", "status": "oauth-registration-required", "integration": "MCP + Skill connector", "detail": "Review bundles are ready. Server-side OAuth and market publication require WorkBuddy coordination.", "documentation": "https://open.workbuddy.cn/docs/connector"},
-    {"id": "coze-custom", "name": "Coze custom MCP", "surfaces": ["Coze web", "Coze desktop"], "entryClass": "self-service", "status": "oauth-registration-required", "integration": "Custom MCP JSON", "detail": "Import is self-service; complete the Coze OAuth callback/client registration before sign-in.", "documentation": "https://docs.coze.cn/mcp"},
-    {"id": "coze-team-store", "name": "Coze team MCP store", "surfaces": ["Coze team", "Coze enterprise"], "entryClass": "self-service", "status": "admin-review-optional", "integration": "Team MCP publication", "detail": "Creator publication is direct unless the organization has enabled MCP review."},
-    {"id": "doubao", "name": "Doubao", "surfaces": ["Doubao"], "entryClass": "unavailable", "status": "new-publication-unavailable", "integration": "Former Coze publication channel", "detail": "Coze removed new Doubao publication on 2026-07-01. Existing publications are unaffected.", "documentation": "https://docs.coze.cn/recent-updates"}
+    {
+      "id": "openai-private",
+      "name": "ChatGPT / Codex Git marketplace",
+      "surfaces": [
+        "ChatGPT",
+        "ChatGPT Work",
+        "Codex"
+      ],
+      "entryClass": "self-service",
+      "status": "package-ready",
+      "integration": "Agent Plugin + public Git marketplace",
+      "detail": "Public plugin files can be installed by Git source; OAuth and service roles control runtime access. ChatGPT developer mode still creates account-local MCP registration."
+    },
+    {
+      "id": "openai-public",
+      "name": "OpenAI universal directory",
+      "surfaces": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "entryClass": "official-review",
+      "status": "review-required",
+      "integration": "Public plugin submission",
+      "detail": "Requires verified developer or business identity, Apps Management write access, reviewer credentials and approval.",
+      "documentation": "https://developers.openai.com/plugins/deploy/submission"
+    },
+    {
+      "id": "anthropic-custom-connector",
+      "name": "Claude custom connector",
+      "surfaces": [
+        "Claude",
+        "Claude Desktop",
+        "Cowork"
+      ],
+      "entryClass": "self-service",
+      "status": "oauth-registration-required",
+      "integration": "Remote MCP",
+      "detail": "An owner can add the URL directly. OAuth callback/client registration is still required before sign-in.",
+      "documentation": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"
+    },
+    {
+      "id": "anthropic-private-plugin",
+      "name": "Claude Git marketplace",
+      "surfaces": [
+        "Claude",
+        "Claude Code",
+        "Cowork"
+      ],
+      "entryClass": "self-service",
+      "status": "package-ready",
+      "integration": "Public Git marketplace",
+      "detail": "Add re8ch/tool-distribution as a marketplace in Claude or Claude Code, then install the available plugins. Runtime access requires OAuth."
+    },
+    {
+      "id": "anthropic-public",
+      "name": "Anthropic public directories",
+      "surfaces": [
+        "Claude",
+        "Claude Code",
+        "Cowork"
+      ],
+      "entryClass": "official-review",
+      "status": "review-required",
+      "integration": "Connector + community plugin submissions",
+      "detail": "The connector directory and community plugin marketplace have separate review submissions.",
+      "documentation": "https://support.anthropic.com/en/articles/11596036-anthropic-mcp-directory-faq"
+    },
+    {
+      "id": "cursor-team",
+      "name": "Cursor team marketplace",
+      "surfaces": [
+        "Cursor IDE",
+        "Cursor CLI"
+      ],
+      "entryClass": "self-service",
+      "status": "package-ready",
+      "integration": "Team marketplace",
+      "detail": "Teams and Enterprise admins can import plugin manifests from the public repository."
+    },
+    {
+      "id": "cursor-public",
+      "name": "Cursor public marketplace",
+      "surfaces": [
+        "Cursor IDE",
+        "Cursor CLI"
+      ],
+      "entryClass": "official-review",
+      "status": "blocked-private-source",
+      "integration": "Public marketplace submission",
+      "detail": "Cursor requires a public open-source repository and manual review; the administrative source repository is private.",
+      "documentation": "https://prod.cursor.com/docs/reference/plugins"
+    },
+    {
+      "id": "workbuddy",
+      "name": "WorkBuddy connector market",
+      "surfaces": [
+        "WorkBuddy"
+      ],
+      "entryClass": "official-review",
+      "status": "oauth-registration-required",
+      "integration": "MCP + Skill connector",
+      "detail": "Review bundles are ready. Server-side OAuth and market publication require WorkBuddy coordination.",
+      "documentation": "https://open.workbuddy.cn/docs/connector"
+    },
+    {
+      "id": "coze-custom",
+      "name": "Coze custom MCP",
+      "surfaces": [
+        "Coze web",
+        "Coze desktop"
+      ],
+      "entryClass": "self-service",
+      "status": "oauth-registration-required",
+      "integration": "Custom MCP JSON",
+      "detail": "Import is self-service; complete the Coze OAuth callback/client registration before sign-in.",
+      "documentation": "https://docs.coze.cn/mcp"
+    },
+    {
+      "id": "coze-team-store",
+      "name": "Coze team MCP store",
+      "surfaces": [
+        "Coze team",
+        "Coze enterprise"
+      ],
+      "entryClass": "self-service",
+      "status": "admin-review-optional",
+      "integration": "Team MCP publication",
+      "detail": "Creator publication is direct unless the organization has enabled MCP review."
+    },
+    {
+      "id": "doubao",
+      "name": "Doubao",
+      "surfaces": [
+        "Doubao"
+      ],
+      "entryClass": "unavailable",
+      "status": "new-publication-unavailable",
+      "integration": "Former Coze publication channel",
+      "detail": "Coze removed new Doubao publication on 2026-07-01. Existing publications are unaffected.",
+      "documentation": "https://docs.coze.cn/recent-updates"
+    }
   ],
   "plugins": [
-    {"id": "re8ch-cloud-platform-tool", "name": "Cloud Platform Tool", "summary": "Inspect and repair Kubernetes and nodes through ConnecTool.", "access": "RE8CH operators and administrators; every write remains server-authorized and audited.", "selector": "re8ch-cloud-platform-tool@re8ch-admin-private", "mcp": {"role": "owner", "status": "live", "url": "https://tools.service.re8ch.com/cloud/mcp"}},
-    {"id": "re8ch-cluster-infra-tool", "name": "Cluster Infra Tool", "summary": "Operate networking, storage, databases, registries and observability.", "access": "Uses the Cloud Platform Tool connection; infrastructure policies enforce each operation.", "selector": "re8ch-cluster-infra-tool@re8ch-admin-private", "mcp": {"role": "shared", "owner": "re8ch-cloud-platform-tool", "status": "live"}},
-    {"id": "re8ch-agent-orchestra-collab", "name": "Agent Orchestra Collab", "summary": "Coordinate tasks, models, sandboxes, agents and artifacts.", "access": "Uses the Cloud Platform Tool connection; application authorization remains independent.", "selector": "re8ch-agent-orchestra-collab@re8ch-admin-private", "mcp": {"role": "shared", "owner": "re8ch-cloud-platform-tool", "status": "live"}},
-    {"id": "re8ch-tenant-admin", "name": "Tenant Admin", "summary": "Manage tenant identity, grants and BYOC approvals.", "access": "RE8CH Platform Admins only; secret values are never returned.", "selector": "re8ch-tenant-admin@re8ch-admin-private", "mcp": {"role": "owner", "status": "live", "url": "https://admin.re8ch.com:8443/mcp"}}
+    {
+      "id": "re8ch-cloud-platform-tool",
+      "name": "Cloud Platform Tool",
+      "summary": "Inspect and repair Kubernetes and nodes through ConnecTool.",
+      "access": "RE8CH operators and administrators; every write remains server-authorized and audited.",
+      "selector": "re8ch-cloud-platform-tool@re8ch-tools",
+      "mcp": {
+        "role": "owner",
+        "status": "live",
+        "url": "https://tools.service.re8ch.com/cloud/mcp"
+      }
+    },
+    {
+      "id": "re8ch-cluster-infra-tool",
+      "name": "Cluster Infra Tool",
+      "summary": "Operate networking, storage, databases, registries and observability.",
+      "access": "Uses the Cloud Platform Tool connection; infrastructure policies enforce each operation.",
+      "selector": "re8ch-cluster-infra-tool@re8ch-tools",
+      "mcp": {
+        "role": "shared",
+        "owner": "re8ch-cloud-platform-tool",
+        "status": "live"
+      }
+    },
+    {
+      "id": "re8ch-agent-orchestra-collab",
+      "name": "Agent Orchestra Collab",
+      "summary": "Coordinate tasks, models, sandboxes, agents and artifacts.",
+      "access": "Uses the Cloud Platform Tool connection; application authorization remains independent.",
+      "selector": "re8ch-agent-orchestra-collab@re8ch-tools",
+      "mcp": {
+        "role": "shared",
+        "owner": "re8ch-cloud-platform-tool",
+        "status": "live"
+      }
+    },
+    {
+      "id": "re8ch-tenant-admin",
+      "name": "Tenant Admin",
+      "summary": "Manage tenant identity, grants and BYOC approvals.",
+      "access": "RE8CH Platform Admins only; secret values are never returned.",
+      "selector": "re8ch-tenant-admin@re8ch-tools",
+      "mcp": {
+        "role": "owner",
+        "status": "live",
+        "url": "https://admin.re8ch.com:8443/mcp"
+      }
+    },
+    {
+      "id": "re8ch-tenant",
+      "name": "Tenant Self-Service",
+      "summary": "Use identity-scoped tenant capabilities and granted services.",
+      "access": "Authenticated tenant users; TenantGrant controls allowed capabilities.",
+      "selector": "re8ch-tenant@re8ch-tools",
+      "mcp": {
+        "role": "owner",
+        "status": "live",
+        "url": "https://tools.service.re8ch.com/tenant/mcp"
+      }
+    }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "mcpServers": {
+    "re8ch-cloud-platform-tool": {
+      "type": "http",
+      "url": "https://operate.tools.re8ch.com/cloud/mcp",
+      "oauth": {
+        "clientId": "re8ch-cloud-platform-tool"
+      },
+      "scopes": [
+        "openid",
+        "profile",
+        "email",
+        "groups",
+        "offline_access"
+      ]
+    },
+    "re8ch-cloud-observe": {
+      "type": "http",
+      "url": "https://tools.service.re8ch.com/cloud/mcp",
+      "oauth": {
+        "clientId": "re8ch-cloud-platform-tool"
+      },
+      "scopes": [
+        "openid",
+        "profile",
+        "email",
+        "groups",
+        "offline_access"
+      ]
+    },
+    "re8ch-platform-operate": {
+      "type": "http",
+      "url": "https://operate.tools.re8ch.com/mcp",
+      "oauth": {
+        "clientId": "re8ch-cloud-platform-tool"
+      },
+      "scopes": [
+        "openid",
+        "profile",
+        "email",
+        "groups",
+        "offline_access"
+      ]
+    }
+  }
+}

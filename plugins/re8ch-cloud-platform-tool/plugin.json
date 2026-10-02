@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "re8ch-cloud-platform-tool",
+  "version": "0.1.7",
+  "description": "Inspect and repair RE8CH Kubernetes and nodes through an OAuth-protected MCP control plane.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-cloud-platform-tool",
+  "repository": "https://github.com/re8ch/tool-distribution",
+  "keywords": [
+    "re8ch",
+    "kubernetes",
+    "operations",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "RE8CH Cloud Platform Tool",
+        "shortDescription": "Inspect and repair RE8CH Kubernetes and nodes.",
+        "longDescription": "Full Kubernetes, SSH, file-transfer and cluster-repair workflows through the RE8CH OAuth-protected MCP control plane.",
+        "developerName": "RE8CH",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Interactive",
+          "Write",
+          "OAuth",
+          "MCP"
+        ],
+        "websiteURL": "https://re8ch.github.io/tool-distribution/#re8ch-cloud-platform-tool",
+        "privacyPolicyURL": "https://re8ch.github.io/tool-distribution/privacy.html",
+        "termsOfServiceURL": "https://re8ch.github.io/tool-distribution/terms.html",
+        "defaultPrompt": [
+          "Inspect RE8CH control-plane health.",
+          "Perform this authorized Kubernetes or node repair operation."
+        ],
+        "brandColor": "#28D7A1"
+      }
+    }
+  }
+}

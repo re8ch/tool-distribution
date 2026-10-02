@@ -1,0 +1,11 @@
+{
+  "name": "re8ch-cloud-platform-tool",
+  "version": "0.1.7",
+  "description": "Inspect and repair RE8CH Kubernetes and nodes through an OAuth-protected MCP control plane.",
+  "author": {
+    "name": "RE8CH",
+    "url": "https://github.com/re8ch"
+  },
+  "homepage": "https://re8ch.github.io/tool-distribution/#re8ch-cloud-platform-tool",
+  "repository": "https://github.com/re8ch/tool-distribution"
+}
