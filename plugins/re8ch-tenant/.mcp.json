@@ -9,7 +9,10 @@
         "profile",
         "email",
         "offline_access"
-      ]
+      ],
+      "oauth": {
+        "scopes": "openid profile email offline_access"
+      }
     }
   }
 }
