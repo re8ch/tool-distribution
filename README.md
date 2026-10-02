@@ -33,3 +33,5 @@ claude plugin install re8ch-tenant@re8ch-tools
 Codex: add `https://github.com/re8ch/tool-distribution.git` as a Git-source
 plugin marketplace, then choose a plugin from `re8ch-tools`. Installing the
 files does not grant permission to operate RE8CH services.
+
+WorkBuddy connector bundles are in [`distribution/workbuddy/`](distribution/workbuddy/).

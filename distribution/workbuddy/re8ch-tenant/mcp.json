@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "re8ch-tenant": {
+      "type": "streamableHttp",
+      "url": "https://tools.service.re8ch.com/tenant/mcp",
+      "timeout": 30000
+    }
+  }
+}
