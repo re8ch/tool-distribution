@@ -200,13 +200,13 @@
     {
       "id": "re8ch-tenant",
       "name": "Tenant Self-Service",
-      "summary": "Use identity-scoped tenant capabilities and granted services.",
+      "summary": "Discover active-organization self-service capabilities and reviewed workflows before using tenant tools.",
       "access": "Authenticated tenant users; TenantGrant controls allowed capabilities.",
       "selector": "re8ch-tenant@re8ch-tools",
       "mcp": {
         "role": "owner",
         "status": "live",
-        "url": "https://tools.service.re8ch.com/tenant/mcp"
+        "url": "https://tools.service.re8ch.com/tenant-native/mcp"
       }
     }
   ]

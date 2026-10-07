@@ -1,7 +1,7 @@
 {
   "name": "re8ch-tenant",
-  "version": "0.2.4",
-  "description": "Generic self-service access to RE8CH tenant capabilities through one identity-scoped control plane.",
+  "version": "0.2.5",
+  "description": "Discover current tenant self-service capabilities and reviewed workflows before using RE8CH resource tools.",
   "author": {
     "name": "RE8CH",
     "url": "https://github.com/re8ch"
@@ -9,8 +9,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Re8ch Tenant",
-    "shortDescription": "Consume the capabilities granted to your tenant.",
-    "longDescription": "One tenant-neutral package for service lifecycle, registry, database, observability and BYOC capabilities. The OAuth identity selects the tenant and TenantGrant selects the permitted Consumables; prompts cannot choose either boundary.",
+    "shortDescription": "Discover and use your tenant's live self-service capabilities.",
+    "longDescription": "Start with tenant_self_service_capabilities for current resource operations and Ready namespaces, then dynamic_skill_search for reviewed internal workflows. Static tool listings are entry points, not a complete capability catalog. OAuth and the active organization determine the resource scope; grants and roles determine allowed operations.",
     "developerName": "RE8CH",
     "category": "Developer Tools",
     "capabilities": [
@@ -21,7 +21,7 @@
       "MCP"
     ],
     "defaultPrompt": [
-      "Show the capabilities available to my tenant.",
+      "Discover the self-service capabilities and reviewed workflows available to my active organization.",
       "Plan this tenant service before creating it.",
       "List my tenant resources and their usage."
     ]

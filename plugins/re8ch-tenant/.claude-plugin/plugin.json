@@ -1,7 +1,7 @@
 {
   "name": "re8ch-tenant",
-  "version": "0.2.2",
-  "description": "Use tenant-scoped RE8CH cloud capabilities through OAuth.",
+  "version": "0.2.3",
+  "description": "Discover current tenant self-service capabilities and reviewed workflows, then use authorized RE8CH cloud tools through OAuth.",
   "icon": ".claude-plugin/icon.png",
   "privacyPolicyUrl": "https://re8ch.github.io/tool-distribution/privacy.html",
   "author": {
