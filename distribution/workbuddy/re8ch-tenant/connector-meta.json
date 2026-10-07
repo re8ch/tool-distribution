@@ -2,12 +2,12 @@
   "name": "RE8CH 租户工具",
   "name_zh": "RE8CH 租户工具",
   "name_en": "RE8CH Tenant Tools",
-  "description": "访问当前 RE8CH 租户被授权的工具。",
-  "description_zh": "访问当前 RE8CH 租户被授权的工具。",
-  "description_en": "Use tools authorized for the current RE8CH tenant.",
+  "description": "先动态查询当前组织的 Self Service 能力和内部工作流，再使用已授权工具。",
+  "description_zh": "先动态查询当前组织的 Self Service 能力和内部工作流，再使用已授权工具。",
+  "description_en": "Discover the active organization's live self-service capabilities and reviewed workflows before using authorized tools.",
   "source": "re8ch-tenant",
   "type": "mcp",
   "version": "0.1.0",
-  "examples_zh": ["列出我可使用的租户工具", "查看当前租户的可用能力"],
-  "examples_en": ["List my available tenant tools", "Show capabilities available to my tenant"]
+  "examples_zh": ["动态查询当前组织的 Self Service 能力", "查找当前组织可用的内部工作流"],
+  "examples_en": ["Discover self-service capabilities for my active organization", "Find reviewed internal workflows available to my organization"]
 }
