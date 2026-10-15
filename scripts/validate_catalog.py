@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / "docs/catalog.json").read_text())
+CLAUDE_TENANT = ROOT / "plugins/re8ch-tenant"
 
 
 def main() -> None:
@@ -42,6 +43,28 @@ def main() -> None:
             raise SystemExit(f"{plugin['id']}: owning plugin has no MCP URL")
         if mcp["role"] == "shared" and mcp.get("owner") != "re8ch-cloud-platform-tool":
             raise SystemExit(f"{plugin['id']}: unexpected shared MCP owner")
+
+    claude_manifest = json.loads(
+        (CLAUDE_TENANT / ".claude-plugin/plugin.json").read_text()
+    )
+    claude_mcp = json.loads((CLAUDE_TENANT / ".mcp.json").read_text())
+    claude_readme = (CLAUDE_TENANT / "README.md").read_text()
+    claude_skill = (CLAUDE_TENANT / "skills/tenant-self-service/SKILL.md").read_text()
+    claude_icon = (CLAUDE_TENANT / ".claude-plugin/icon.png").read_bytes()
+
+    if claude_manifest.get("version") != "0.2.4":
+        raise SystemExit("Claude tenant plugin version must be 0.2.4")
+    if claude_mcp["mcpServers"]["re8ch-tenant"]["url"] != (
+        "https://tools.service.re8ch.com/tenant-native/mcp"
+    ):
+        raise SystemExit("Claude tenant plugin must use the tenant-native endpoint")
+    for required in ("Re8ch application organization", "Re8ch Admin", "disconnect and reconnect"):
+        if required not in claude_readme:
+            raise SystemExit(f"Claude tenant README is missing organization boundary: {required}")
+    if "Never treat membership in one organization" not in claude_skill:
+        raise SystemExit("Claude tenant skill must preserve organization membership boundaries")
+    if not claude_icon.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise SystemExit("Claude tenant icon must remain a PNG")
 
     print("catalog validation passed: channels and plugin ownership are complete")
 
