@@ -1,45 +1,127 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-site="tool-distribution">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RE8CH ConnecTool distribution status across ChatGPT, Codex, Claude, Cowork, Cursor, WorkBuddy, Coze and Doubao.">
   <title>RE8CH Tool Distribution</title>
-  <link rel="stylesheet" href="./styles.css">
+  <meta name="description" content="RE8CH ConnecTool distribution status across ChatGPT, Codex, Claude, Cowork, Cursor, WorkBuddy, Coze and Doubao.">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta property="og:title" content="RE8CH Tool Distribution">
+  <meta property="og:description" content="One OAuth-protected ToolHive MCP plane, packaged for every viable AI surface.">
+  <meta property="og:url" content="https://re8ch.github.io/tool-distribution/">
+  <link rel="canonical" href="https://re8ch.github.io/tool-distribution/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://re8ch.github.io/tool-distribution/sitemap.xml">
+  <link rel="icon" type="image/svg+xml" href="https://brand-assets.re8ch.com/SVG/logo.svg">
+  <link rel="stylesheet" href="./styles.css?v=20261028-td-1">
+  <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.css">
+  <link rel="stylesheet" href="https://brand-assets.re8ch.com/dist/current/re8ch-footer.css">
+  <script src="./boot.js?v=20261028-td-1"></script>
+  <script src="https://brand-assets.re8ch.com/dist/current/re8ch-navigator.js" defer></script>
+  <script src="https://brand-assets.re8ch.com/dist/current/re8ch-footer.js" defer></script>
+  <script src="./site.js?v=20261028-td-1" defer></script>
+  <script src="./app.js?v=20261028-td-1" defer></script>
 </head>
 <body>
-  <header class="wrap">
-    <div class="eyebrow">RE8CH / ConnecTool Distribution</div>
-    <h1>One backend. Every viable AI surface.</h1>
-    <p class="lead">A release catalog for one OAuth-protected ToolHive MCP plane. Platform packages carry discovery and skills; authorization, policy and audit remain centralized.</p>
-    <div class="flow" aria-label="Distribution model">
-      <div><strong>ConnecTool</strong>Identity and publication contract</div>
-      <div><strong>ToolHive MCP</strong>One remote capability plane</div>
-      <div><strong>Portable packages</strong>Skills and client discovery</div>
-      <div><strong>Vendor gates</strong>Registration or official review</div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section>
-      <div class="section-head"><div><div class="eyebrow">Platform matrix</div><h2>Registration and certification</h2></div><p>“Package ready” means repository artifacts validate. It does not bypass an external OAuth registration or vendor review.</p></div>
-      <div id="channels" class="channel-grid" aria-live="polite"><p>Loading catalog…</p></div>
+  <div class="shell">
+  <re8ch-navigator product="re8ch" brand="RE8CH Tool Distribution" locale="en" home-href="./" links='[{"label":"Map","href":"#map"},{"label":"Channels","href":"#channels"},{"label":"Packages","href":"#plugins"},{"label":"Install","href":"#install"},{"label":"Gates","href":"#gates"}]' language-options='[{"label":"English","value":"en","href":"./"}]' language-mode="available" extra-actions='[]'></re8ch-navigator>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">RE8CH / ConnecTool <span class="tag" id="updated">Distribution catalog</span></p>
+          <h1>One backend. Every viable AI surface.</h1>
+          <p class="lead">A release catalog for one OAuth-protected ToolHive MCP plane. Platform packages carry discovery and skills; authorization, policy and audit remain centralized.</p>
+          <div class="actions"><a class="button primary" href="#install">Install the plugins</a><a class="button" href="./catalog.json">catalog.json</a><a class="button" href="https://github.com/re8ch/tool-distribution" rel="noopener">GitHub</a></div>
+          <div class="stats" aria-live="polite">
+            <div><span>Channels</span><strong data-stat="channels">11</strong></div>
+            <div><span>Self-service</span><strong data-stat="self-service">6</strong></div>
+            <div><span>Vendor review</span><strong data-stat="official-review">4</strong></div>
+            <div><span>Live packages</span><strong data-stat="live">5</strong></div>
+          </div>
+        </div>
+        <div class="figure" id="map">
+          <div class="figure-head"><b>Distribution map</b><small>Pick a channel to trace its route.</small></div>
+          <div class="figure-body" data-map><svg role="group" aria-label="Packages, the shared MCP plane and distribution channels"></svg></div>
+          <div class="figure-foot">
+            <div class="chips" data-map-filter role="group" aria-label="Filter channels">
+              <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="chip k-ok" type="button" data-filter="self-service" aria-pressed="false">Self-service</button>
+              <button class="chip k-warn" type="button" data-filter="official-review" aria-pressed="false">Official review</button>
+              <button class="chip k-bad" type="button" data-filter="unavailable" aria-pressed="false">Unavailable</button>
+            </div>
+            <div class="verdict" data-map-caption aria-live="polite"><b>Loading catalog…</b></div>
+            <div class="legend"><span class="k-ok"><i></i>Self-service</span><span class="k-warn"><i></i>Official review</span><span class="k-bad"><i></i>Unavailable</span><span class="k-shared"><i></i>Reuses owner connection</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="plugin-section">
-      <div class="section-head"><div><div class="eyebrow">Installable packages</div><h2>Shared capabilities</h2></div><p>Only the owning packages register MCP connections. Skill-only packages reuse that authenticated connection.</p></div>
-      <div id="plugins" class="grid" aria-live="polite"></div>
+    <section class="section" id="model">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Distribution model</p><h2>Four layers, one authority.</h2><p>Packages only carry discovery and skills. Every tool call still lands on the same OAuth-protected plane, so policy and audit never fork per vendor.</p></div>
+        <div class="layers">
+          <article><span class="idx">01</span><h3>ConnecTool</h3><p>Identity and publication contract</p></article>
+          <article><span class="idx">02</span><h3>ToolHive MCP</h3><p>One remote capability plane</p></article>
+          <article><span class="idx">03</span><h3>Portable packages</h3><p>Skills and client discovery</p></article>
+          <article><span class="idx">04</span><h3>Vendor gates</h3><p>Registration or official review</p></article>
+        </div>
+      </div>
     </section>
 
-    <section class="policy">
-      <h2>Known external gates</h2>
-      <p>OpenAI, Anthropic public directories, Cursor public Marketplace and WorkBuddy market publication require vendor review. Cursor additionally requires a public open-source source repository. WorkBuddy and Coze need platform OAuth callback/client registration because the current Dex issuer has no dynamic client-registration endpoint.</p>
-      <p>New publication from Coze to Doubao is unavailable: Coze removed that channel on 2026-07-01. Existing Doubao publications are unaffected.</p>
-      <a class="button" href="https://github.com/re8ch/tool-distribution">View machine-readable catalog</a>
+    <section class="section" id="channels">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Platform matrix</p><h2>Registration and certification</h2><p>“Package ready” means repository artifacts validate. It does not bypass an external OAuth registration or vendor review.</p></div>
+        <div data-channels aria-live="polite"><p class="note">Loading catalog…</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="plugins">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Installable packages</p><h2>Shared capabilities</h2><p>Only the owning packages register MCP connections. Skill-only packages reuse that authenticated connection.</p></div>
+        <div class="packages" data-plugins aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="wrap install">
+        <div>
+          <div class="section-head"><p class="eyebrow">Install</p><h2>Install plugins from one Git source.</h2><p>Claude, Claude Code and Codex read the same repository. It ships both marketplace manifests with the same five plugin names.</p></div>
+          <ol class="steps">
+            <li><span>Add <code>re8ch/tool-distribution</code> as a marketplace.</span></li>
+            <li><span>Install a plugin from <code>re8ch-tools</code>.</span></li>
+            <li><span>Sign in through OAuth when the client first calls a tool.</span></li>
+          </ol>
+          <p class="note">Installing the files does not grant permission to operate RE8CH services. WorkBuddy connector bundles are in <a href="https://github.com/re8ch/tool-distribution/tree/main/distribution/workbuddy" rel="noopener">distribution/workbuddy</a>.</p>
+        </div>
+        <div class="code-stack">
+          <div class="code">
+            <div class="code-head"><span>Claude Code</span><button class="copy" type="button" data-copy-target="code-claude">Copy</button></div>
+            <pre id="code-claude">claude plugin marketplace add re8ch/tool-distribution
+claude plugin install re8ch-tenant@re8ch-tools</pre>
+          </div>
+          <div class="code">
+            <div class="code-head"><span>Codex · Git-source marketplace</span><button class="copy" type="button" data-copy-target="code-codex">Copy</button></div>
+            <pre id="code-codex">https://github.com/re8ch/tool-distribution.git</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gates">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Policy</p><h2>Known external gates</h2></div>
+        <div class="split">
+          <div class="panel warn"><h3>Vendor review and registration</h3><p>OpenAI, Anthropic public directories, Cursor public Marketplace and WorkBuddy market publication require vendor review. Cursor additionally requires a public open-source source repository. WorkBuddy and Coze need platform OAuth callback/client registration because the current Dex issuer has no dynamic client-registration endpoint.</p></div>
+          <div class="panel bad"><h3>Closed channel</h3><p>New publication from Coze to Doubao is unavailable: Coze removed that channel on 2026-07-01. Existing Doubao publications are unaffected.</p></div>
+        </div>
+        <div class="closing">
+          <p>The catalog is validated on every pull request before it is published here.</p>
+          <div class="actions"><a class="button primary" href="https://github.com/re8ch/tool-distribution">View machine-readable catalog</a><a class="button" href="./privacy.html">Privacy</a><a class="button" href="./terms.html">Terms</a></div>
+        </div>
+      </div>
     </section>
   </main>
-
-  <footer><div class="wrap"><span id="updated">Catalog</span><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></div></footer>
-  <script src="./app.js" defer></script>
+  <re8ch-footer active-product="re8ch" locale="en" theme="light" language-options='[{"label":"English","value":"en","href":"./"}]' language-mode="available" brand-logo="https://brand-assets.re8ch.com/SVG/logo.svg"></re8ch-footer>
+  </div>
 </body>
 </html>
