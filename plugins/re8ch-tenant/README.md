@@ -19,11 +19,11 @@ Start with `tenant_self_service_capabilities` to see the active organization's
 current resource operations and Ready namespaces. Search `dynamic_skill_search`
 for reviewed internal workflows and integrations that are not listed as static
 tools. A connector's installed tool list is not the complete service catalog;
-refresh its discovery after a server update. If `platform_tool_catalog` is
-exposed for an authorized admin session, use it to discover protected modules.
-The administrator catalog is a separate authorization path in this same
-self-service connection: ordinary tenant grants and service classes do not
-limit a tool that the server publishes for a verified platform administrator.
+refresh its discovery after a server update. The Re8ch Admin organization is
+the Meta tenant for the directly connected platform cluster. Use only the
+explicit `platform_*` tools and their published schemas; ordinary tenant grants
+and Ready namespaces do not limit those direct Admin operations. The generic
+`platform_tool_catalog` and `platform_tool_call` bridge is retired.
 For PostgreSQL schema work, discover the reviewed `postgres_admin_sql` entry;
 it uses a server-held credential and requires a plan hash for writes. A fresh
 Supabase Studio login is not required for each agent migration.

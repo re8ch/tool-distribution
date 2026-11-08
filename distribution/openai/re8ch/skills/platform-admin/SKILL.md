@@ -12,6 +12,13 @@ AmongCluster; do not require an Admin BYOC registration. Server-published input 
 interface. Never discover or dispatch work through `platform_tool_catalog` or
 `platform_tool_call`, and do not require the three legacy public MCP servers.
 
+The Admin organization is the Meta tenant for the directly connected platform
+cluster. Use `platform_kubernetes_resource_read` for discovery and non-Secret
+reads, and the explicit apply/delete tools for namespaced or cluster-scoped
+mutations. Preview every mutation on the server and reuse its exact plan hash.
+Ordinary tenant grants and Ready namespaces do not constrain these direct
+`platform_*` tools; Secret values remain write-only or redacted.
+
 Platform administration requires a separately verified Re8ch Admin session.
 Do not infer Admin authority from an ordinary tenant role, a tenant name in a
 prompt, or access to a static skill. Prefer observation and planning before a
