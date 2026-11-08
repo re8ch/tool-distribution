@@ -13,10 +13,9 @@ never expose database passwords, Kubernetes Secrets, node addresses, or Pigsty
 credentials. Ordinary tenant operations must not bypass their grant boundary
 with database administration tools.
 
-For a verified platform-admin session, use `platform_tool_catalog` and
-`platform_tool_call` on this same plugin to discover the separate Pigsty
-administrator tools. A missing ordinary database Consumable does not restrict
-the returned administrator catalog. If `postgres_admin_sql` is published, use
-its fixed server-held Supabase credential, read-only inventory first, and its
-approval ID plus plan hash before any write. Do not retrieve Secret values or
-substitute `kubectl.exec` for this reviewed SQL entry.
+For a verified Re8ch Admin Meta-tenant session, use only explicitly published
+database administrator tools and their concrete schemas. A missing ordinary
+database Consumable does not restrict a direct Admin tool. If
+`postgres_admin_sql` is published, use its server-held credential, read-only
+inventory first, and its approval ID plus plan hash before any write. Do not
+retrieve Secret values or invent a generic catalog/call bridge.
