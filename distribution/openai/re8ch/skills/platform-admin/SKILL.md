@@ -6,8 +6,9 @@ description: Use explicit RE8CH Admin tools for authorized full-cluster inspecti
 # RE8CH Platform Admin
 
 Use the unified `re8ch-tenant` MCP connection. A verified Re8ch Admin session
-may expose the Admin-owned BYOC cluster through explicit namespaced and
-cluster-scoped tools. Their server-published input schemas are the callable
+may expose directly connected RE8CH platform clusters through explicit
+cluster-scoped tools. BYOC is for external tenant clusters connected through
+AmongCluster; do not require an Admin BYOC registration. Server-published input schemas are the callable
 interface. Never discover or dispatch work through `platform_tool_catalog` or
 `platform_tool_call`, and do not require the three legacy public MCP servers.
 

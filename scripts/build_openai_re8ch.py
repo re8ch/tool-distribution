@@ -21,7 +21,7 @@ DIST = ROOT / "dist"
 def manifest() -> dict:
     description = (
         "Discover and manage services available to your RE8CH account. A verified "
-        "Re8ch Admin session can operate its Admin-owned BYOC cluster through explicit "
+        "Re8ch Admin session can operate directly connected RE8CH platform clusters through explicit "
         "tools with concrete input schemas. Available resources remain constrained by "
         "the active organization, grants, Ready namespaces and server authorization."
     )
@@ -58,19 +58,19 @@ def manifest() -> dict:
             "publication": {
                 "release_notes": (
                     "Uses one unified RE8CH MCP connection, removes the generic platform "
-                    "catalog/call bridge, documents Admin-owned BYOC operation, and clarifies "
+                    "catalog/call bridge, documents direct Admin cluster operation and external-cluster BYOC, and clarifies "
                     "that dynamic skills are instructions rather than executable cloud tools."
                 ),
                 "translations": {
-                    "zh-CN": {"subtitle": "管理您的 RE8CH 服务", "description": "管理当前 RE8CH 组织的服务；经验证的 Re8ch Admin 可通过具有明确参数结构的工具操作 Admin 所有的 BYOC 集群。"},
-                    "zh-TW": {"subtitle": "管理您的 RE8CH 服務", "description": "管理目前 RE8CH 組織的服務；經驗證的 Re8ch Admin 可透過具有明確參數結構的工具操作 Admin 擁有的 BYOC 叢集。"},
-                    "ja-JP": {"subtitle": "RE8CHサービスを管理", "description": "現在のRE8CH組織のサービスを管理します。確認済みAdminは、明示的な入力スキーマを持つツールでAdmin所有のBYOCクラスタを操作できます。"},
+                    "zh-CN": {"subtitle": "管理您的 RE8CH 服务", "description": "管理当前 RE8CH 组织的服务；经验证的 Re8ch Admin 可通过具有明确参数结构的工具操作 RE8CH 直连平台集群。BYOC 用于通过 AmongCluster 引入外部集群。"},
+                    "zh-TW": {"subtitle": "管理您的 RE8CH 服務", "description": "管理目前 RE8CH 組織的服務；經驗證的 Re8ch Admin 可透過具有明確參數結構的工具操作 RE8CH 直連平台叢集。BYOC 用於透過 AmongCluster 引入外部叢集。"},
+                    "ja-JP": {"subtitle": "RE8CHサービスを管理", "description": "現在のRE8CH組織のサービスを管理します。確認済みAdminは明示的な入力スキーマを持つツールでRE8CHの直接接続クラスタを操作できます。BYOCはAmongCluster経由の外部クラスタ用です。"},
                 },
             },
             "review": {"test_cases": {
                 "positive": [
                     {"description": "Discover active organization capabilities.", "prompt": "Show my RE8CH capabilities, Ready namespaces and whether each is writable.", "tools_triggered": "tenant_self_service_capabilities", "expected_behavior": "Calls the capability tool and reports only the authenticated active organization without changing resources."},
-                    {"description": "Inspect Admin BYOC registrations.", "prompt": "List the BYOC registrations and Ready connections owned by my active Re8ch Admin organization.", "tools_triggered": "byoc_registration_list, byoc_connection_list", "expected_behavior": "Calls both list tools, preserves opaque references and does not return credential material."},
+                    {"description": "Discover platform cluster resources.", "prompt": "As a verified Re8ch Admin, discover every Kubernetes API resource type on the directly connected platform cluster without making changes.", "tools_triggered": "platform_kubernetes_resource_read", "expected_behavior": "Calls the explicit resource-read tool with action=discover; it does not require BYOC and does not return Secret values."},
                     {"description": "Use the concrete Admin Kubernetes argument schema.", "prompt": "As a verified Re8ch Admin, read the Kubernetes API version using argv [\"get\",\"--raw=/version\"] without making changes.", "tools_triggered": "platform_kubectl_exec", "expected_behavior": "Calls the explicit server-published tool with the exact argv string array and reports the audited result; it never calls a generic catalog or dispatch tool."},
                 ],
                 "negative": [
