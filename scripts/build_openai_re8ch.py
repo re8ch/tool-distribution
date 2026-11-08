@@ -21,8 +21,8 @@ DIST = ROOT / "dist"
 def manifest() -> dict:
     description = (
         "Discover and manage services available to your RE8CH account. A verified "
-        "Re8ch Admin session can operate directly connected RE8CH platform clusters through explicit "
-        "tools with concrete input schemas. Admin is the Meta tenant for the directly connected "
+        "Re8ch Admin session can operate directly connected RE8CH platform clusters through the existing "
+        "tool interface. Admin is the Meta tenant for the directly connected "
         "platform cluster; ordinary tenants remain constrained by their organization, grants, "
         "Ready namespaces and server authorization."
     )
@@ -71,8 +71,8 @@ def manifest() -> dict:
             "review": {"test_cases": {
                 "positive": [
                     {"description": "Discover active organization capabilities.", "prompt": "Show my RE8CH capabilities, Ready namespaces and whether each is writable.", "tools_triggered": "tenant_self_service_capabilities", "expected_behavior": "Calls the capability tool and reports only the authenticated active organization without changing resources."},
-                    {"description": "Discover platform cluster resources.", "prompt": "As a verified Re8ch Admin, discover every Kubernetes API resource type on the directly connected platform cluster without making changes.", "tools_triggered": "platform_kubernetes_resource_read", "expected_behavior": "Calls the explicit resource-read tool with action=discover; it does not require BYOC and does not return Secret values."},
-                    {"description": "Preview an Admin Meta-tenant apply.", "prompt": "As a verified Re8ch Admin, server-side preview applying a ConfigMap named review-probe in namespace ops; do not persist it.", "tools_triggered": "platform_kubernetes_resource_apply", "expected_behavior": "Calls the explicit apply tool with apply=false, returns the backend dry-run result and exact planHash, and does not require a TenantGrant or BYOC registration."},
+                    {"description": "Read platform cluster resources through the existing interface.", "prompt": "As a verified Re8ch Admin, list Gateway resources across the directly connected platform cluster without making changes.", "tools_triggered": "tenant_kubernetes_get", "expected_behavior": "Calls the existing Kubernetes get tool; the backend grants Meta scope without requiring BYOC, a Ready namespace, or a new plugin interface, and it does not return Secret values."},
+                    {"description": "Preview an Admin Meta-tenant apply through the existing interface.", "prompt": "As a verified Re8ch Admin, server-side preview applying a ConfigMap named review-probe in namespace ops; do not persist it.", "tools_triggered": "tenant_kubernetes_apply", "expected_behavior": "Calls the existing Kubernetes apply tool with apply=false; the backend performs a server dry-run with Meta scope and does not require a TenantGrant, BYOC registration, or a new plugin interface."},
                     {"description": "Use the concrete Admin Kubernetes argument schema.", "prompt": "As a verified Re8ch Admin, read the Kubernetes API version using argv [\"get\",\"--raw=/version\"] without making changes.", "tools_triggered": "platform_kubectl_exec", "expected_behavior": "Calls the explicit server-published tool with the exact argv string array and reports the audited result; it never calls a generic catalog or dispatch tool."},
                 ],
                 "negative": [

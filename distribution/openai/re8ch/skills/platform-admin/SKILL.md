@@ -13,11 +13,14 @@ interface. Never discover or dispatch work through `platform_tool_catalog` or
 `platform_tool_call`, and do not require the three legacy public MCP servers.
 
 The Admin organization is the Meta tenant for the directly connected platform
-cluster. Use `platform_kubernetes_resource_read` for discovery and non-Secret
-reads, and the explicit apply/delete tools for namespaced or cluster-scoped
-mutations. Preview every mutation on the server and reuse its exact plan hash.
-Ordinary tenant grants and Ready namespaces do not constrain these direct
-`platform_*` tools; Secret values remain write-only or redacted.
+cluster. Prefer the existing `tenant_kubernetes_get`,
+`tenant_kubernetes_apply`, and `tenant_kubernetes_delete` interfaces: the
+backend grants those same calls namespaced and cluster-scoped Meta access.
+Specialized `platform_*` tools may remain available for compatibility, but a
+client does not need a new interface to control cluster resources. Preview
+mutations before applying them. Ordinary tenant grants and Ready namespaces do
+not constrain verified Admin Meta calls; Secret values remain write-only or
+redacted.
 
 Platform administration requires a separately verified Re8ch Admin session.
 Do not infer Admin authority from an ordinary tenant role, a tenant name in a

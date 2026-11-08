@@ -20,9 +20,11 @@ current resource operations and Ready namespaces. Search `dynamic_skill_search`
 for reviewed internal workflows and integrations that are not listed as static
 tools. A connector's installed tool list is not the complete service catalog;
 refresh its discovery after a server update. The Re8ch Admin organization is
-the Meta tenant for the directly connected platform cluster. Use only the
-explicit `platform_*` tools and their published schemas; ordinary tenant grants
-and Ready namespaces do not limit those direct Admin operations. The generic
+the Meta tenant for the directly connected platform cluster. Existing
+Kubernetes tools receive full cluster scope from the backend for that verified
+Admin identity; ordinary tenant grants and Ready namespaces continue to limit
+non-Admin operations. Specialized `platform_*` tools are compatible helpers,
+not a required replacement interface. The generic
 `platform_tool_catalog` and `platform_tool_call` bridge is retired.
 For PostgreSQL schema work, discover the reviewed `postgres_admin_sql` entry;
 it uses a server-held credential and requires a plan hash for writes. A fresh

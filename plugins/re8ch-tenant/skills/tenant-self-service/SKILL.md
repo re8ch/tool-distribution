@@ -35,12 +35,13 @@ different organization, or use local credentials as a workaround.
    and operation references.
 5. Never request or expose passwords, tokens, Secret values, private keys,
    kubeconfigs, provider credentials, node addresses, price, tax, or journals.
-6. Use only the explicitly published Admin tools and their declared input
-   schemas. Do not look for or emulate `platform_tool_catalog` or
-   `platform_tool_call`. Platform-admin authorization is separate from
-   ordinary TenantGrant and service-class availability. The Admin organization
-   is the Meta tenant: direct `platform_*` tools may address every namespace and
-   cluster-scoped resource, while Secret values remain write-only or redacted.
+6. Do not look for or emulate `platform_tool_catalog` or `platform_tool_call`.
+   Platform-admin authorization is separate from ordinary TenantGrant and
+   service-class availability. The Admin organization is the Meta tenant: the
+   existing Kubernetes get/apply/delete tools receive full direct-cluster scope
+   from the backend without requiring a new interface. Specialized
+   `platform_*` tools may remain as compatible helpers. Secret values remain
+   write-only or redacted.
 7. Tenant creation, grant mutation, identity binding, BYOC approval, and
    cross-tenant operations require the protected administrator path.
 8. Do not bypass the authenticated self-service plugin with locally obtained
