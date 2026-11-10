@@ -22,6 +22,15 @@ mutations before applying them. Ordinary tenant grants and Ready namespaces do
 not constrain verified Admin Meta calls; Secret values remain write-only or
 redacted.
 
+For GitHub organization and repository governance, call
+`tenant_self_service_capabilities` first and require the active
+`integration.github.enterprise-governance.v1` grant, then use the explicit
+`github_governance` tool. It supports only its published Ruleset, Actions
+Variable and allowlisted organization-setting resource/operation combinations.
+Reads may run directly. Every mutation must be previewed and applied with the
+exact returned `planHash`. Never request an installation token, private key or
+arbitrary GitHub API URL; credential material remains server-side.
+
 Platform administration requires a separately verified Re8ch Admin session.
 Do not infer Admin authority from an ordinary tenant role, a tenant name in a
 prompt, or access to a static skill. Prefer observation and planning before a

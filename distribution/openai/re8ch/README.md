@@ -9,10 +9,13 @@ python3 scripts/build_openai_re8ch.py
 ```
 
 The generated archive is written to `dist/` and is not the source of truth.
-Version 1.0.3 uses the unified tenant MCP server and preserves the existing
-tool interface. A verified Admin session is the Meta tenant; the existing
+Version 1.0.4 uses the unified tenant MCP server and preserves the existing
+tenant interface. A verified Admin session is the Meta tenant; the existing
 `tenant_kubernetes_get`, `tenant_kubernetes_apply`, and
 `tenant_kubernetes_delete` calls receive full direct-cluster scope from the
-backend without requiring a new plugin tool. BYOC remains the tenant path for external
-clusters connected through AmongCluster. The package does not publish the retired `platform_tool_catalog` or
+backend. The explicit Admin-only `github_governance` tool consumes the active
+Enterprise Governance App grant for bounded Ruleset, Actions Variable and
+organization-setting operations without returning credential material. BYOC
+remains the tenant path for external clusters connected through AmongCluster.
+The package does not publish the retired `platform_tool_catalog` or
 `platform_tool_call` bridge, or add the three legacy public MCP connections.
