@@ -70,15 +70,15 @@ def main() -> None:
         raise SystemExit("Claude tenant icon must remain a PNG")
 
     subprocess.run(["python3", str(ROOT / "scripts/build_openai_re8ch.py")], check=True, capture_output=True, text=True)
-    archive = ROOT / "dist/app-6ab9692ab6108191bc630a4055d7d3d7-1.0.4.zip"
+    archive = ROOT / "dist/app-6ab9692ab6108191bc630a4055d7d3d7-1.0.3.zip"
     with tempfile.TemporaryDirectory() as temporary, zipfile.ZipFile(archive) as package:
         package.extractall(temporary)
         package_root = Path(temporary)
         openai_manifest = json.loads((package_root / "plugin.json").read_text())
         openai_mcp = json.loads((package_root / "mcp.json").read_text())
         skill = (package_root / "skills/platform-admin/SKILL.md").read_text()
-    if openai_manifest.get("version") != "1.0.4":
-        raise SystemExit("OpenAI Re8ch package version must be 1.0.4")
+    if openai_manifest.get("version") != "1.0.3":
+        raise SystemExit("OpenAI Re8ch package version must be 1.0.3")
     if set(openai_mcp["mcpServers"]) != {"re8ch-tenant"}:
         raise SystemExit("OpenAI Re8ch package must use only the unified tenant MCP")
     encoded = json.dumps(openai_manifest, ensure_ascii=False) + skill
@@ -89,15 +89,6 @@ def main() -> None:
         raise SystemExit("OpenAI package must document that generic platform bridges are retired")
     if "reviewed workflow instructions only" not in skill.lower() or "do not register a remote cloud api" not in skill.lower():
         raise SystemExit("OpenAI package must distinguish skills from executable connectors")
-    positive_tools = {
-        case.get("tools_triggered")
-        for case in openai_manifest["extensions"]["com.openai"]["review"]["test_cases"]["positive"]
-    }
-    if "github_governance" not in positive_tools:
-        raise SystemExit("OpenAI package must review the GitHub governance tool")
-    for required in ("integration.github.enterprise-governance.v1", "planHash", "credential material"):
-        if required.lower() not in encoded.lower():
-            raise SystemExit(f"OpenAI package is missing GitHub governance boundary: {required}")
 
     print("catalog validation passed: channels and plugin ownership are complete")
 
