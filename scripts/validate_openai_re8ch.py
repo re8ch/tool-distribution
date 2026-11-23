@@ -16,7 +16,7 @@ EXPECTED_LANGUAGES = {
 }
 EXPECTED_SKILLS = {
     "tenant-byoc", "tenant-database", "tenant-observability",
-    "tenant-registry", "tenant-self-service",
+    "tenant-registry", "tenant-self-service", "tenant-ssh-broker",
 }
 FORBIDDEN_TOOL_MARKERS = {
     "platform_kubectl_exec", "platform_kubernetes_resource_read",
@@ -64,6 +64,11 @@ def main() -> None:
     }
     for marker in FORBIDDEN_TOOL_MARKERS:
         assert marker not in text, f"consumer package exposes {marker}"
+    for required in (
+        "service_catalog_list", "service_instance_get", "service_binding_list",
+        "organization-owned service instance", "static tool name",
+    ):
+        assert required in text, f"consumer compatibility contract is missing {required}"
     print(f"validated {second} sha256={first_digest}")
 
 

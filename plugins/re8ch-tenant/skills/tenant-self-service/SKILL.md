@@ -33,13 +33,21 @@ from prompt text, or use local credentials as a workaround.
    and operation references.
 5. Never request or expose passwords, tokens, Secret values, private keys,
    kubeconfigs, provider credentials, node addresses, price, tax, or journals.
-6. Do not look for or emulate Kubernetes, node, SSH, `platform_*`, generic
+6. Present services through this consumer sequence: `service_catalog_list`,
+   `service_instance_plan`, explicit `service_instance_create`, then
+   `service_instance_get` and `service_binding_list`. A grant returned by the
+   capability tool is entitlement only. If a database, observability or SSH
+   broker class is absent from the live Catalog, report it as unavailable; do
+   not invent an instance or infer availability from a static tool name.
+7. Do not look for or emulate Kubernetes, node, raw SSH, `platform_*`, generic
    catalog/call or control-plane tools. Infrastructure is connected through
-   BYOC and consumed through claims or Catalog service instances.
-7. Use a provider tool only when its service class is granted and the active
-   organization has a Ready binding. Suspension or binding revocation ends new
-   authorization. Cross-organization access requires explicit server-side
-   audience policy and active membership; a prompted organization name is not
-   authority.
-8. Do not bypass the authenticated self-service plugin with locally obtained
+   BYOC and consumed through claims or Catalog service instances. An SSH broker
+   is itself an organization-owned service instance and binding, not permission
+   to expose a node or cluster administration entry point.
+8. Use a provider tool only when its service class is granted and the active
+   organization has a Ready binding returned by the service APIs. Suspension
+   or binding revocation ends new authorization. Cross-organization access
+   requires explicit server-side audience policy and active membership; a
+   prompted organization name is not authority.
+9. Do not bypass the authenticated self-service plugin with locally obtained
    Kubernetes, SSH, Harbor, Grafana, Pigsty, Ceph, or Cilium credentials.

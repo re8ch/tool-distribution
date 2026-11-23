@@ -21,7 +21,8 @@ def manifest() -> dict:
     description = (
         "Discover and manage services owned by your active RE8CH organization. "
         "Connect organization infrastructure through BYOC, create provider-backed "
-        "service instances from the Catalog, inspect bindings and usage, and use "
+        "database, observability, registry and audited SSH broker service instances "
+        "from the Catalog, inspect bindings and usage, and use "
         "only tools authorized for that organization and a Ready service binding."
     )
     return {
@@ -46,7 +47,7 @@ def manifest() -> dict:
                 "termsOfServiceURL": "https://re8ch.github.io/tool-distribution/terms.html",
                 "defaultPrompt": [
                     "Show the BYOC, claim and Catalog capabilities available to my active RE8CH organization.",
-                    "List the service classes, plans and regions available to my organization.",
+                    "List the database, observability, registry and SSH broker service classes available to my organization.",
                     "List my organization's service instances, bindings and auditable usage.",
                 ],
                 "logo": "./assets/logo.svg",
@@ -58,8 +59,9 @@ def manifest() -> dict:
                 "release_notes": (
                     "Introduces a consumer-only RE8CH MCP resource centered on organizations, "
                     "BYOC connections, claims, Catalog service instances, bindings and usage. "
-                    "Raw Kubernetes, node, SSH and platform-administration entry points are not "
-                    "published by this package. Version 1.0.2 keeps its existing endpoint."
+                    "Raw Kubernetes, node, SSH execution and platform-administration entry points are not "
+                    "published by this package; an audited SSH broker is consumed only as an organization-owned "
+                    "Catalog instance with a Ready binding. Version 1.0.2 keeps its existing endpoint."
                 ),
                 "translations": {
                     "zh-CN": {"subtitle": "管理您的 RE8CH 服务", "description": "发现并管理当前 RE8CH 组织拥有的服务。通过 BYOC 连接组织基础设施，从 Catalog 创建服务实例，并查看绑定和可审计用量。只有获得组织授权且具有 Ready 服务绑定的工具才可使用。"},
@@ -79,6 +81,7 @@ def manifest() -> dict:
                     {"description": "Discover active organization capabilities.", "prompt": "Show the BYOC, claim and Catalog capabilities available to my active RE8CH organization.", "tools_triggered": "tenant_self_service_capabilities", "expected_behavior": "Reports only the authenticated active organization's consumer capabilities and grants without exposing Kubernetes or platform administration."},
                     {"description": "Inspect the live service Catalog.", "prompt": "List the service classes, plans, regions and parameters available to my RE8CH organization.", "tools_triggered": "service_catalog_list", "expected_behavior": "Lists only active granted provider-backed classes and does not claim that a listed service already has a Ready instance."},
                     {"description": "List organization-owned service instances.", "prompt": "List my organization's RE8CH service instances and summarize their lifecycle state.", "tools_triggered": "service_instance_list", "expected_behavior": "Lists only instances owned by the authenticated organization and does not return provider credentials."},
+                    {"description": "Inspect organization-owned service bindings.", "prompt": "List my organization's Ready service bindings for database, observability and audited SSH broker services.", "tools_triggered": "service_binding_list", "expected_behavior": "Lists only bindings owned by the active organization, treats access references as opaque and reports a service as unavailable when its class, instance or Ready binding is absent."},
                     {"description": "Inspect BYOC connections.", "prompt": "List my organization's Ready BYOC connections and any pending registrations without changing them.", "tools_triggered": "byoc_connection_list", "expected_behavior": "Lists only non-revoked connections visible to the authenticated organization and treats connection references as opaque."},
                     {"description": "Review auditable usage.", "prompt": "Show my organization's auditable service usage and say whether it includes prices or only quantities.", "tools_triggered": "tenant_usage_summary_get", "expected_behavior": "Reports returned usage facts without inventing prices, tax or billing journal entries."},
                 ],
