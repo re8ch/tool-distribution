@@ -20,10 +20,10 @@ DIST = ROOT / "dist"
 def manifest() -> dict:
     description = (
         "Discover and manage services owned by your active RE8CH organization. "
-        "Connect organization infrastructure through BYOC, create provider-backed "
-        "database, observability, registry and audited SSH broker service instances "
-        "from the Catalog, inspect bindings and usage, and use "
-        "only tools authorized for that organization and a Ready service binding."
+        "Connect organization infrastructure through BYOC and inspect the live Catalog, "
+        "service instances, bindings and usage. Database, observability, registry or "
+        "audited SSH broker capabilities are usable only when the live Catalog publishes "
+        "the service class and the organization has an authorized Ready binding."
     )
     return {
         "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
