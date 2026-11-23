@@ -9,10 +9,14 @@ python3 scripts/build_openai_re8ch.py
 ```
 
 The generated archive is written to `dist/` and is not the source of truth.
-Version 1.0.3 uses the unified tenant MCP server and preserves the existing
-tool interface. A verified Admin session is the Meta tenant; the existing
-`tenant_kubernetes_get`, `tenant_kubernetes_apply`, and
-`tenant_kubernetes_delete` calls receive full direct-cluster scope from the
-backend without requiring a new plugin tool. BYOC remains the tenant path for external
-clusters connected through AmongCluster. The package does not publish the retired `platform_tool_catalog` or
-`platform_tool_call` bridge, or add the three legacy public MCP connections.
+Version 1.0.3 uses the consumer-only MCP resource at
+`https://tools.service.re8ch.com/tenant-plugin/mcp`. It publishes organization
+context, BYOC, claims, Catalog service instances, bindings, usage and
+service-oriented tools. It does not publish raw Kubernetes, node, SSH or
+platform-administration entry points. Provider tools require an active
+organization grant and a Ready service binding.
+
+Version 1.0.2 remains on
+`https://tools.service.re8ch.com/tenant-native/mcp`; this package does not alter
+that compatibility endpoint. The new endpoint and its OAuth protected-resource
+metadata must be deployed before the 1.0.3 archive is submitted for review.

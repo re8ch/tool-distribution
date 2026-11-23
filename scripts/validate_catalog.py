@@ -76,19 +76,27 @@ def main() -> None:
         package_root = Path(temporary)
         openai_manifest = json.loads((package_root / "plugin.json").read_text())
         openai_mcp = json.loads((package_root / "mcp.json").read_text())
-        skill = (package_root / "skills/platform-admin/SKILL.md").read_text()
+        skill_text = "\n".join(
+            path.read_text()
+            for path in sorted((package_root / "skills").glob("*/SKILL.md"))
+        )
     if openai_manifest.get("version") != "1.0.3":
         raise SystemExit("OpenAI Re8ch package version must be 1.0.3")
     if set(openai_mcp["mcpServers"]) != {"re8ch-tenant"}:
         raise SystemExit("OpenAI Re8ch package must use only the unified tenant MCP")
-    encoded = json.dumps(openai_manifest, ensure_ascii=False) + skill
+    if openai_mcp["mcpServers"]["re8ch-tenant"]["url"] != (
+        "https://tools.service.re8ch.com/tenant-plugin/mcp"
+    ):
+        raise SystemExit("OpenAI Re8ch 1.0.3 must use the consumer plugin endpoint")
+    encoded = json.dumps(openai_manifest, ensure_ascii=False) + skill_text
     for retired in ("re8ch-cloud-platform-tool", "re8ch-cloud-observe", "re8ch-platform-operate"):
         if retired in json.dumps(openai_mcp):
             raise SystemExit(f"OpenAI package still contains legacy MCP {retired}")
-    if "platform_tool_catalog" not in encoded or "platform_tool_call" not in encoded:
-        raise SystemExit("OpenAI package must document that generic platform bridges are retired")
-    if "reviewed workflow instructions only" not in skill.lower() or "do not register a remote cloud api" not in skill.lower():
-        raise SystemExit("OpenAI package must distinguish skills from executable connectors")
+    for forbidden in ("platform_kubectl_exec", "tenant_kubernetes_get"):
+        if forbidden in encoded:
+            raise SystemExit(f"OpenAI consumer package contains {forbidden}")
+    if "Ready binding" not in skill_text:
+        raise SystemExit("OpenAI package must require a Ready service binding")
 
     print("catalog validation passed: channels and plugin ownership are complete")
 
