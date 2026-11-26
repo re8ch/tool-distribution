@@ -1,0 +1,20 @@
+apiVersion: governance.re8ch.com/v1alpha1
+kind: ClusterResourceIndex
+metadata:
+  name: tool-distribution
+spec:
+  controlPlane:
+    repository: git@gitlab.com:reachievellc/service-backend.git
+    revision: main
+    indexPath: indexes/deployments.json
+  lookup:
+    module: tool-distribution
+    catalog: platform
+    declaredDeployments:
+    - toolhive-system
+  evidence:
+    authority: kubernetes
+    requiredPlanes:
+    - monitoring
+    - deploying
+    - planning
