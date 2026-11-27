@@ -24,6 +24,12 @@ FORBIDDEN_TOOL_MARKERS = {
     "tenant_kubernetes_apply", "tenant_kubernetes_delete",
     "reconcile_control_plane_authentication_config",
 }
+EXPECTED_STALWART_TOOLS = {
+    "stalwart_capabilities",
+    "stalwart_mail_query", "stalwart_mail_read", "stalwart_mail_send",
+    "stalwart_calendar_query", "stalwart_calendar_respond",
+    "stalwart_contacts_query", "stalwart_files_list", "stalwart_files_read",
+}
 
 
 def digest(path) -> str:
@@ -64,6 +70,8 @@ def main() -> None:
     }
     for marker in FORBIDDEN_TOOL_MARKERS:
         assert marker not in text, f"consumer package exposes {marker}"
+    for tool in EXPECTED_STALWART_TOOLS:
+        assert tool in text, f"consumer review contract is missing {tool}"
     for required in (
         "service_catalog_list", "service_instance_get", "service_binding_list",
         "organization-owned service instance", "static tool name",
