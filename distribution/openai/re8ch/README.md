@@ -16,7 +16,14 @@ service-oriented tools. It does not publish raw Kubernetes, node, SSH or
 platform-administration entry points. Provider tools require an active
 organization grant and a Ready service binding.
 
+The 1.0.3 review contract also covers the explicit Stalwart relay surface:
+capability discovery; mail query, read and send; calendar query and response;
+contacts query; and files list and read. These tools are conditionally exposed
+from a Ready user connection and its granted operation scopes. The package
+never embeds Stalwart credentials or grants access by itself.
+
 Version 1.0.2 remains on
 `https://tools.service.re8ch.com/tenant-native/mcp`; this package does not alter
-that compatibility endpoint. The new endpoint and its OAuth protected-resource
-metadata must be deployed before the 1.0.3 archive is submitted for review.
+that compatibility endpoint. The 1.0.3 endpoint and its OAuth
+protected-resource metadata are deployed; build and validate the deterministic
+archive before submitting it for OpenAI review.
